@@ -1,24 +1,21 @@
 const button = document.getElementById('button-convert')
 const select = document.getElementById('select-value')
 
-
 const dollar = 5.2
 const Euro = 5.9
 const bitCoin = 0.0000059
+const Iene = 21.55 
 
 const convertValues = () => {
     const getReaisValue = document.getElementById('input-real').value
-    const realValueText = document.getElementById('Real-value-text')
+    const realValueText = document.getElementById('real-value-text')
     const currentValueText = document.getElementById('current-value-text')
-
-    // realValueText.innerHTML = `R$ ${getReaisValue}`
 
     realValueText.innerHTML = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
     }).format(getReaisValue)
 
-    // currentValueText.innerHTML = `R$ ${parseInt(getReaisValue / dollar)}`
 
     if (select.value === 'US$ Dollar') {
         currentValueText.innerHTML = new Intl.NumberFormat('en-US', {
@@ -29,7 +26,7 @@ const convertValues = () => {
 
     if (select.value === '€ Euro') {
         currentValueText.innerHTML = new Intl.NumberFormat('de-DE', {
-            style: 'currency',
+            style: 'currency', 
             currency: 'EUR'
         }).format(getReaisValue / Euro)
     }
@@ -42,8 +39,15 @@ const convertValues = () => {
         }).format(getReaisValue * bitCoin)
     }
 
-}
+    if (select.value === '¥ Ienes') {
+        currentValueText.innerHTML = new Intl.NumberFormat('jp-JP', {
+            maximumFractionDigits:10,
+            style: 'currency',
+            currency: 'JPY'
+        }).format(getReaisValue * Iene)
+    }
 
+}
 
 
 const changeCurrency = () => {
@@ -66,6 +70,10 @@ const changeCurrency = () => {
         currencyImg.src = './assets/bitcoin.svg'
         currencyName.innerHTML = 'BitCoin'
     }
+    if (select.value === '¥ Ienes') {
+        currencyImg.src = './assets/ienes.svg'
+        currencyName.innerHTML = ' Ienes'
+    }
 
     if (getReaisValue > 0) {
         convertValues()
@@ -75,4 +83,4 @@ const changeCurrency = () => {
 
 
 button.addEventListener('click', convertValues)
-select.addEventListener('change', changeCurrency)
+select.addEventListener('change', changeCurrency)  

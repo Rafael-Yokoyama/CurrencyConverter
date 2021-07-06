@@ -12,8 +12,7 @@
    <a href="https://www.linkedin.com/in/rafael-yokoyama/">
       <img alt="Rafael Yokoyama" src="https://img.shields.io/badge/-RafaelYokoyama-blue?style=flat&logo=Linkedin&logoColor=white" />
    </a>
-  <img alt="Yoga" src="https://img.shields.io/badge/Yoga-layout-blue"> 
-
+ 
 </p>
 
 <div align="center">

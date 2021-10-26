@@ -1,12 +1,17 @@
 const button = document.getElementById('button-convert')
 const select = document.getElementById('select-value')
 
-const dollar = 5.2
 const Euro = 5.9
 const bitCoin = 0.0000059
 const Iene = 21.55 
 
-const convertValues = () => {
+const convertValues = async () => {
+
+    let dollar = 0
+    await fetch('https://api.currencyfreaks.com/latest?apikey=9bc6d79285ca4d5a9edb1262648b9cb0')
+        .then(data => data.json())
+        .then(res => dollar = res?.rates?.BRL)
+
     const getReaisValue = document.getElementById('input-real').value
     const realValueText = document.getElementById('real-value-text')
     const currentValueText = document.getElementById('current-value-text')
